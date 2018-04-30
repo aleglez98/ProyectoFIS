@@ -11,7 +11,10 @@
 #include "message.h"
 
 namespace FIS{
-
+struct Identificador{
+    std::string username;
+    std::string password;
+};
 class ServerController{
 private:
 
@@ -32,7 +35,48 @@ public:
     void serverSend(std::atomic<bool>& quit, const std::string& username);
     //Envia info necesaria al cliente
 
-    void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd);
+    struct ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd){
+        string 
+        ifstream registro("basddatos.txt");
+        while(quit==false){
+            getline(registro,prueba);
+            if(prueba.find(username)!= -1){
+                if(prueba.find(",") != -1){
+                    if(prueba.find(passwd)!= -1){
+                        cout << "Usuario correcto\n";
+                        Identificador.username=username;
+                        Identificador.password=passwd;
+                        exito=true;
+                        return &Identificador;
+                        }
+                    }
+                }
+            else{
+                cout <<"Comprueba las credenciales"<<endl;
+                cout << "Introduzca su nombre de usuario:";
+                cin >> usuario;
+                //cout << endl;
+                cout << "Introduzca contraseña:";
+                cin >> pass;
+            }
+            }
+    }
+    struct ControlRegistro(const std::string& username, const std::string& passwd){
+        ofstream registro("basddatos.txt");
+        cout << "introduce tu nombre:";
+        cin >> resp;
+        registro << resp << ",";
+        cout << "introduce tu apellido:";
+        cin >> resp;
+        registro << resp << ",";
+        cout << "introduce tu nombre de usuario:";
+        cin >> resp;
+        registro << resp << ",";
+        cout << "introduce tu contraseña";
+        cin >> resp;
+        registro << resp << ",";
+        registro << endl;
+    }
     //Comprueba si credenciales existen, si no, manda a crear un usuario nuevo y da acceso a la red
 
     /*
