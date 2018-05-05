@@ -35,8 +35,13 @@ public:
     void serverSend(std::atomic<bool>& quit, const std::string& username);
     //Envia info necesaria al cliente
 
-    struct ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd){
-        string 
+    void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd){
+        quit=ControlRegistro(username,passwd);
+        serverSend(quit,username);
+    }
+    bool ControlRegistro(const std::string& username, const std::string& passwd){
+        bool quit=false;
+        string prueba;
         ifstream registro("basddatos.txt");
         while(quit==false){
             getline(registro,prueba);
@@ -47,35 +52,21 @@ public:
                         Identificador.username=username;
                         Identificador.password=passwd;
                         exito=true;
-                        return &Identificador;
+                        serverSend(exito,username);
+                        return exito;
                         }
+                    }
+                   else{
+                    serverSend(exito,username);
+                    return exito;
                     }
                 }
             else{
-                cout <<"Comprueba las credenciales"<<endl;
-                cout << "Introduzca su nombre de usuario:";
-                cin >> usuario;
-                //cout << endl;
-                cout << "Introduzca contraseña:";
-                cin >> pass;
+                    serverSend(exito,username);
+                    return exito;
+                }
             }
-            }
-    }
-    struct ControlRegistro(const std::string& username, const std::string& passwd){
-        ofstream registro("basddatos.txt");
-        cout << "introduce tu nombre:";
-        cin >> resp;
-        registro << resp << ",";
-        cout << "introduce tu apellido:";
-        cin >> resp;
-        registro << resp << ",";
-        cout << "introduce tu nombre de usuario:";
-        cin >> resp;
-        registro << resp << ",";
-        cout << "introduce tu contraseña";
-        cin >> resp;
-        registro << resp << ",";
-        registro << endl;
+        }
     }
     //Comprueba si credenciales existen, si no, manda a crear un usuario nuevo y da acceso a la red
 
