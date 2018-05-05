@@ -70,6 +70,10 @@ void procesamiento_de_opciones(bool& help_option, bool& server_option, std::stri
         }
     }
 }
+  struct InfoUser{
+    string username;
+    string passwd;
+  }
 
 class ClientController{
 private:
@@ -83,10 +87,23 @@ public:
     ~ClientController();
 
     void UserSend(std::atomic<bool>& quit, Socket receiver);
-    /*
-     * void ControlLogin();
-     * void CrearCuenta(//nombredeusuario);
-     * void SolicitarAcceso();   //-> señal a server
+    
+    void ControlLogin(){
+      cout<<"Nombre de usuario:";
+      cin>>InfoUser.username;
+      cout<<"password:";
+      cin>>InfoUser.passwd;
+      //No se como mandar los datos al servidor porque si uso el UserSend tendriamos que especificar para enviar un mensaje 
+      //el usuario y la contraseña siempre y hacer un log in.
+    }
+    
+    void CrearCuenta(){
+      cout<<"Nombre de usuario:";
+      cin>>InfoUser.username;
+      cout<<"password:";
+      cin>>InfoUser.passwd;
+    }
+     /* void SolicitarAcceso();   //-> señal a server
      *
     */
 };
