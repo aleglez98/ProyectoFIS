@@ -84,7 +84,7 @@ void procesamiento_de_opciones(bool& help_option, bool& server_option, std::stri
     void UserSend(std::atomic<bool>& quit, Socket receiver);
     
     void ControlLogin(){
-      cout<<"Nombre de usuario:";
+      cout<<"Nombre de usuari@:";
       cin>>InfoUser.username;
       cout<<"password:";
       cin>>InfoUser.passwd;
