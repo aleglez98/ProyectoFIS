@@ -15,6 +15,7 @@ struct Identificador{
     std::string username;
     std::string password;
 };
+
 class ServerController{
 private:
 
@@ -68,14 +69,6 @@ public:
             }
         }
     }
-    //Comprueba si credenciales existen, si no, manda a crear un usuario nuevo y da acceso a la red
-
-    /*
-     * void EditarPerfil(//indice de perfil a editar, //a quién se lo muestro);
-     * void MostrarPerfil(//indice de perfil a mostrar, //a quién se lo muestro);
-     * void MostrarTimeline(//mostrar timeline de quién, //a quién se lo muestro,);
-     *                      //Manejar dentro de manera interactiva si muestra la general, me gustas o retweets
-    */
 };
 
 }

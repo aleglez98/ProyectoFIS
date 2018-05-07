@@ -1,6 +1,8 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 
+#include "socket.h"
+
 namespace FIS{
 
 struct InfoUser{
@@ -9,6 +11,12 @@ struct InfoUser{
     int edad;             //Duh
 
     //...    Por si falta algo necesario
+};
+
+struct User
+{
+    std::string name;
+    std::string passwd;
 
 };
 
