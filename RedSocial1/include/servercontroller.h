@@ -1,6 +1,6 @@
 #ifndef SERVERCONTROLLER_H
 #define SERVERCONTROLLER_H
-
+#define N 30
 #include <cxxabi.h>
 #include <getopt.h>             //Command line opt
 #include <mutex>
