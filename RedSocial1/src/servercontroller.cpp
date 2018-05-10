@@ -10,10 +10,35 @@ ServerController::ServerController(const sockaddr_in &address){
 ServerController::~ServerController(){
 
 }
-
-void ServerController::ControlLogin(std::atomic<bool> &quit, const std::string &username, const std::string &passwd){
-
-
+void ServerController::Register(void){
+    InfoUser userI;
+    sockaddr_in rem_address{}
+    socket_.recieve_userInfo(socket_.get_fd(), userI, rem_address);
+    fstream fs;
+    fs.open("basddatos.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    fs << userI.name << ",";
+    fs << userI.passwd << "," << endl;
+    fs.close();
+    socket_.send_infoUser(userI,rem_address);
+}
+void ServerController::ControlLogin(void){
+    InfoUser userI;
+    sockaddr_in rem_address{}
+    socket_.recieve_userInfo(socket_.get_fd(), userI, rem_address);
+    ifstream registro("basddatos.txt");
+    bool exito=false;
+    while(exito==false){
+        getline(registro,prueba);
+        if(prueba.find(userI.name)!= -1){
+            if(prueba.find(",") != -1){
+                if(prueba.find(userI.passwd)!= -1){
+                    cout << "Usuario correcto\n";
+                    exito=true;
+                }
+            }
+        }
+    }
+    socket_.send_infoUser(userI,rem_address);
 }
 
 void ServerController::serverSend(std::atomic<bool> &quit, const std::string &username){
