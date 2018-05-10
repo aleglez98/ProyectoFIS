@@ -29,8 +29,8 @@ public:
     void serverSend(std::atomic<bool>& quit, const std::string& username);
     //Envia info necesaria al cliente
 
-    void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd);
-    bool ControlRegistro(const std::string& username, const std::string& passwd);
+    void ControlLogin(void);
+    void ServerController::Register(void);
 };
 
 }
