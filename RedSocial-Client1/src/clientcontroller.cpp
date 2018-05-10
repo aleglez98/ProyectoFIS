@@ -126,21 +126,16 @@ void ClientController::UserSend(std::atomic<bool> &quit ){
     }
 }
 
-struct InfoUser{
-    string name;
-    string password;
-}
 
 int ClientController::ControlLogin(void){
+    InfoUser Info;
     cout << "Ha elegido iniciar sesion" << endl;
     std::string usuario,pass,prueba;
     cout << "Introduzca su nombre de usuario:";
-    cin >> usuario;
-    Info.name=usuario;
+    cin >> Info.username;
     cout << "Introduzca contraseña:";
-    cin >> pass;
-    Info.password=pass;
-    socket_.send_usu(InfoUser, dir_servidor);
+    cin >> Info.password;
+    socket_.send_infoUser(Info, dir_servidor);
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
     if(!confir.empty())
@@ -148,13 +143,12 @@ int ClientController::ControlLogin(void){
     return -1;
 }
 
-int ClientController::CrearCuenta(const InfoUser& info){
+int ClientController::CrearCuenta(InfoUser& info){
+    cout << "Ha elegido crear cuenta" << endl;
     cout << "Dime tu nombre de usuario:";
-    cin >> palabra;
-    InfoUser.name=palabra;
+    cin >> info.username;
     cout << "Dime tu password:";
-    cin >> palabra;
-    InfoUser.name=palabra;
+    cin >> Info.password;
     socket_.send_infoUser(infoUser, dir_servidor);
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
