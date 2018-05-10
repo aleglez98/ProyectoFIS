@@ -1,5 +1,3 @@
-#include "/home/marta/Descargas/ProyectoFIS-master/RedSocial-Client1/include/clientcontroller.h"
-#include "/home/marta/Descargas/ProyectoFIS-master/RedSocial-Client1/include/profile.h"
 
 using namespace FIS;
 
@@ -129,8 +127,15 @@ void ClientController::UserSend(std::atomic<bool> &quit ){
 }
 
 int ClientController::ControlLogin(const User& usu){
-
-    socket_.send_usu(usu, dir_servidor);
+     cout << "Ha elegido iniciar sesion" << endl;
+    string usuario,pass,prueba;
+    cout << "Introduzca su nombre de usuario:";
+    cin >> usuario;
+    Info.name=usuario;
+    cout << "Introduzca contraseña:";
+    cin >> pass;
+    Info.password=pass;
+    socket_.send_usu(InfoUser, dir_servidor);
 
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
@@ -140,10 +145,13 @@ int ClientController::ControlLogin(const User& usu){
     return -1;
 }
 
-
+struct InfoUser{
+    string name;
+    string password;
+}
 int ClientController::CrearCuenta(const InfoUser& info){
-
-    socket_.send_infoUser(info, dir_servidor);
+   
+    socket_.send_infoUser(infoUser, dir_servidor);
 
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
