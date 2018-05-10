@@ -1,6 +1,8 @@
 # ProyectoFIS
 **Proyecto Grupo M02 de la Asignatura de Fundamentos de Ingeniería de Software de la ULL**
 
+
+
 **Grupo de Trabajo: ROLES**
 ------------------------------
 
@@ -31,12 +33,14 @@ Proceso de login (Crossplatform) -> Alejandro
 
 Se plantea la creación de una aplicación en C++ con el modelo cliente-servidor que funcione como una red social en un entorno "privado" o corporativo. Para ello, se seguirá el esquema de planificación realizado en la primera reunión del grupo de desarrollo.
 
+![clientserv](Cliente-servidor.jpeg)
+
+
+### **MODELO BÁSICO INICIAL**
+
 (Nótese que aunque tiene elementos de UML no es sino una versión orientativa y hecha sobre la marcha, servirá únicamente como concepto)
 
 ![Draw.io](ModeloBásico.png)
-
-
-### **MODELO BÁSICO**
 
 ***1. Creación del Servidor:***
 Programa en C++ que gestiona la base de datos contenedora de datos del usuario y da servicio a las peticiones de datos y uso de la aplicación que requieran consultas con la base de datos.
@@ -60,4 +64,4 @@ Contendrá la información de las interacciones del usuario. Guardará en un fic
 Consta de un ID (identificador) de los usuarios, tanto emisores como receptores para poder conocer la dirección real donde se localizan dichos usuarios, en nuestro caso vamos a acceder a la clase historial donde se han guardado previamente las ID's de los usuarios.
 También tendremos en cuenta el orden de llegada de los mensajes.
 
-Estos puntos reflejan la situación final de nuestra Red Social basada en Twitter
+
