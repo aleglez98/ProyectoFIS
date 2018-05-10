@@ -2,23 +2,10 @@
 
 **Proyecto Grupo M02 de la Asignatura de Fundamentos de Ingeniería de Software de la ULL**
 
-**Producto:**
-Prototipo de Red Social a partir de Sistema Cliente-Servidor
+### **Producto:** Prototipo de Red Social a partir de Sistema Cliente-Servidor
 
-**Grupo de Trabajo:**
-Othmán Alexander Salah Díaz
-Daniel Paz Marcos
-Marta García Luis
-Sonia Díaz Santos
-Alejandro González González
-Aitor Hernández Sánchez
-Fernando González Petit
-Planteamiento
-De momento, se plantea utilizar las herramientas de C++ y el modelo cliente-servidor
-
-**----------------------**
-**ROLES**
-**----------------------**
+**Grupo de Trabajo: ROLES**
+------------------------------
 
 **> Manager o líder:** Fernando González Petit
 
@@ -26,11 +13,7 @@ De momento, se plantea utilizar las herramientas de C++ y el modelo cliente-serv
 
 **> Programadores:** Othmán Alexander Salah Díaz, Daniel Paz Marcos, Marta García Luis, Alejandro González González, Aitor Hernández Sánchez
 
-## PLAN DE TRABAJO
-
-**----------------------**
-**TAREAS**
-**----------------------**
+### **PLAN DE TRABAJO**
 
 Empezado el sistema de Proyecto que ofrece Github. Mucho más visual que ir retocando un fichero de texto.
 
@@ -42,45 +25,13 @@ Base de Datos de Cliente (Caché del modo Cliente) -> Aitor
 Proceso de login (Crossplatform) -> Alejandro
 Tiempo requerido individualmente para la realización de la primera entrega 0.
 
-**----------------------**
-**CONOCIMIENTOS DE PROGRAMACIÓN DEL EQUIPO**
-**----------------------**
-
-C++
-
-Java
-
-(?)
-
-
-**----------------------**
-**OBJETIVO INICIAL**
-**----------------------**
+### **OBJETIVO INICIAL**
+----------------------
 
 Para la primera entrega nos hubiera gustado que el usuario se pudiera crear la cuenta y haber implementado el envío del mensaje, pero no ha sido posible llegar a nuestro primer objetivo.
 
-
-**----------------------**
-**TUTORIALS ON POINT**
-**----------------------**
-
-<Github y contribuciones
-
-<Edicion de archivos tipo README en git
-Empezado el sistema de Proyecto que ofrece Github. Mucho más visual que ir retocando un fichero de texto.
-
-- Base de datos General e Histórico (History) -> Daniel
-- Gestión de Perfiles y Bases de Datos Propias(Profile) -> Sonia
-- Gestión de Control de Servidor (main/Server-Controller) -> Fernando
-- Gestión de Control de Cliente (main/Client-Controller) -> Marta, Othmán
-- Base de Datos de Cliente  (Caché del modo Cliente) -> Aitor
-- Proceso de login (Crossplatform) -> Alejandro 
-
-Tiempo requerido individualmente para la realización de la primera entrega 0.
-  
-**----------------------**
-**REQUISITOS DE SOFTWARE**
-**----------------------**
+#### **TUTORIALS ON POINT**
+------------------------------
 
 ***1. Creación del Servidor:***
 Contiene la cuenta o login para guardar los datos en un fichero.
