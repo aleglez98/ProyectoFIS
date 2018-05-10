@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += src/main.cpp \
            src/message.cpp \
-    src/servercontroller.cpp
+    src/servercontroller.cpp \
+    src/profile.cpp
 
 HEADERS += \
     include/servercontroller.h \
