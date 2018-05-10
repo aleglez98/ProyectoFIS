@@ -1,13 +1,6 @@
 #ifndef SERVERCONTROLLER_H
 #define SERVERCONTROLLER_H
 
-#include <cxxabi.h>
-#include <getopt.h>             //Command line opt
-#include <mutex>
-//#include <set>
-#include <utility>
-#include <cstdlib>
-
 #include "message.h"
 
 namespace FIS{

@@ -1,5 +1,10 @@
 #include "../include/servercontroller.h"
 
+//Vaina para cancelar hilos
+void request_cancellation(std::thread& hilo){
+    pthread_cancel(hilo.native_handle());
+}
+
 int main(int argc, char* argv[]){
 
     FIS::Message msg;
@@ -11,6 +16,16 @@ int main(int argc, char* argv[]){
         std::atomic<bool> quit(false);
 
         FIS::ServerController server(my_addr);
+
+        std::string username("Matias");
+        std::thread hilo1(&FIS::ServerController::serverReceive, &server, std::ref(quit));
+        //std::thread hilo2(&FIS::ServerController::serverSend, &server, std::ref(quit), std::ref(username));
+
+        hilo1.join();
+        /*if(quit){
+            request_cancellation(hilo2);
+            hilo2.join();
+        }*/
 
     }catch(std::system_error& e){
         std::cerr << program_invocation_name << ": " << e.what() << '\n';

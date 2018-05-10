@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += src/main.cpp \
         src/clientcontroller.cpp \
-        src/socket.cpp
+        src/socket.cpp \
+    src/profile.cpp
 
 HEADERS += \
     include\clientcontroller.h \
