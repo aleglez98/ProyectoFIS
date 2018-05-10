@@ -1,28 +1,40 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include <cxxabi.h>
-#include <getopt.h>             //Command line opt
-#include <iostream>
-#include <string>               //String
-#include <sys/socket.h>         //Unix sockets
+#include <sys/socket.h>
 #include <sys/types.h>
-#include <netinet/ip.h>         //ipaddr
-#include <arpa/inet.h>          //
+#include <netinet/ip.h>
+#include <arpa/inet.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <iostream>
 #include <cerrno>               //errno
 #include <cstring>
-#include <cstdio>               //C-like methods
+#include <cstdio>               //Funciones tipo C
 #include <cstdlib>
-#include <unistd.h>             //UNIX STANDAR
-#include <vector>
+#include <unistd.h>
 #include <system_error>         //Errores de sistema
 #include <exception>
 #include <thread>
 #include <atomic>
 #include <pthread.h>
+#include <cxxabi.h>
+#include <getopt.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <system_error>
+#include <cstring>
+#include <cstdlib>
+#include <unistd.h>
+#include <ctime>
+#include <algorithm>
+#include <mutex>
+#include <set>
+#include <utility>
+#include <cstdlib>
+#include <vector>
 
 namespace FIS{
 
@@ -40,6 +52,13 @@ struct Message{
     //Campos para MG, RT y Comments ... FUTURA IMPLEMENTACION
 };
 
+struct InfoUser{
+
+    std::string name;
+    std::string passwd;
+    int edad;
+};
+
 class Socket
 {
     int fd_;        //FILE DESCRIPTOR
@@ -54,7 +73,9 @@ public:
     int get_result(){ return result_; }
 
     void send_to(const Message& message, const sockaddr_in& remote_address);    ///<@brief Sends message to a certain address
-    void recieve_from(int fd, Message& message, sockaddr_in& address);          ///<@brief Recieves message from a certain address
+    void recieve_from(Message& message, sockaddr_in& address);          ///<@brief Recieves message from a certain address
+
+    void recieve_userInfo(int fd, InfoUser &userI, sockaddr_in &remote_address);
 
 };
 

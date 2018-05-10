@@ -89,7 +89,7 @@ Socket::Socket(const sockaddr_in& address){
 Socket::Socket(){}
 
 Socket::~Socket(){
-    close(fd_);
+    //close(fd_);
 }
 
 void Socket::send_to(const Message& message, const sockaddr_in& remote_address){
@@ -104,15 +104,26 @@ void Socket::send_to(const Message& message, const sockaddr_in& remote_address){
     }
 }
 
-void Socket::recieve_from(int fd, Message& messagerec, sockaddr_in& rem_address){
+void Socket::recieve_from(Message& messagerec, sockaddr_in& rem_address){
 
     socklen_t src_len = sizeof(rem_address);
 
-    int result = recvfrom(fd, &messagerec, sizeof(messagerec), 0
+    int result = recvfrom(fd_, &messagerec, sizeof(messagerec), 0
            , reinterpret_cast<sockaddr*>(&rem_address), &src_len);
+    std::cout << "No Bytes: " << result << std::endl;
     if(result < 0){
         throw std::system_error(errno, std::system_category(), "fallo la recepcion del mensaje");
     }
 
 }
 
+void Socket::recieve_userInfo(int fd, InfoUser &userI, sockaddr_in &remote_address){
+
+    socklen_t src_len = sizeof(remote_address);
+
+    int result = recvfrom(fd, &userI, sizeof(userI), 0
+                                     , reinterpret_cast<sockaddr*>(&remote_address), &src_len);
+    if(result < 0){
+        throw std::system_error(errno, std::system_category(), "fallo la recepcion del mensaje");
+    }
+}
