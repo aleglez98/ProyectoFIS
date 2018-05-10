@@ -79,18 +79,8 @@ void ClientController::UserRecieve(std::atomic<bool>& quit){
    }
 }
 
-int ClientController::ControlLogin(const InfoUser& usu){
-
-    socket_.send_infoUser(usu, dir_servidor);
-
-    bool confir;
-    socket_.recieve_confir(confir, dir_servidor);
-
-    if(confir)
-======
-
 int ClientController::ControlLogin(void){
-    InfoUser Info;
+    InfoUser Info,Info1;
     cout << "Ha elegido iniciar sesion" << endl;
     cout << "Introduzca su nombre de usuario:";
     cin >> Info.name;
@@ -99,9 +89,13 @@ int ClientController::ControlLogin(void){
     socket_.send_infoUser(Info, dir_servidor);
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
-    if(!confir.empty())
->>>>>> master
-        return 0;
+    if(!confir.empty()){
+        socket_.receive_infoUser(Info1,dir_servidor);
+        if((Info.name==Info1.name)&&(Info.passwd==Info1.passwd)){
+            cout << "Usuario comprobado correctamente";
+            return 0;
+            }
+            }
     return -1;
 }
 
@@ -118,9 +112,16 @@ int ClientController::CrearCuenta(InfoUser& info){
     socket_.send_infoUser(infoUser, dir_servidor);
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
-    if(!confir.empty())
->>>>>> master
-        return 0;
+    if(!confir.empty()){
+        socket_.receive_infoUser(Info1,dir_servidor);
+        if((Info.name==Info1.name)&&(Info.passwd==Info1.passwd)){
+            cout << "Usuario creado correctamente";
+            return 0;
+            }
+        //ahora habria que redireccionarlo a perfil o a un menu inicial
+    }
+    
+        
     return -1;
 
 }
