@@ -130,11 +130,10 @@ void ClientController::UserSend(std::atomic<bool> &quit ){
 int ClientController::ControlLogin(void){
     InfoUser Info;
     cout << "Ha elegido iniciar sesion" << endl;
-    std::string usuario,pass,prueba;
     cout << "Introduzca su nombre de usuario:";
-    cin >> Info.username;
-    cout << "Introduzca contraseña:";
-    cin >> Info.password;
+    cin >> Info.name;
+    cout << "Introduzca su password:";
+    cin >> Info.passwd;
     socket_.send_infoUser(Info, dir_servidor);
     std::string confir = "";
     socket_.recieve_confir(confir, dir_servidor);
