@@ -1,8 +1,5 @@
 # ProyectoFIS
-
 **Proyecto Grupo M02 de la Asignatura de Fundamentos de Ingeniería de Software de la ULL**
-
-### **Producto:** Prototipo de Red Social a partir de Sistema Cliente-Servidor
 
 **Grupo de Trabajo: ROLES**
 ------------------------------
@@ -39,7 +36,7 @@ Se plantea la creación de una aplicación en C++ con el modelo cliente-servidor
 ![Draw.io](ModeloBásico.png)
 
 
-
+### **MODELO BÁSICO**
 
 ***1. Creación del Servidor:***
 Programa en C++ que gestiona la base de datos contenedora de datos del usuario y da servicio a las peticiones de datos y uso de la aplicación que requieran consultas con la base de datos.
