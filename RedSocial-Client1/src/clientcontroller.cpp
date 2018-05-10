@@ -107,14 +107,7 @@ int ClientController::ControlLogin(void){
 
 <<<<<< master
 
-int ClientController::CrearCuenta(const InfoUser& info){
 
-    socket_.send_infoUser(info, dir_servidor);
-
-    bool confir;
-    socket_.recieve_confir(confir, dir_servidor);
-
-    if(confir)
 ======
 int ClientController::CrearCuenta(InfoUser& info){
     cout << "Ha elegido crear cuenta" << endl;
