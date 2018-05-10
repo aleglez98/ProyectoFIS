@@ -5,29 +5,24 @@
 
 sockaddr_in ClientController::make_ip_address(const std::string& ip_address, int port){
 
-    std::cout << " puerto " << port << std::endl;
-    sockaddr_in aux{};
-    aux.sin_family = AF_INET;
+    sockaddr_in local_address{};                            //inicializacion a 0
+    local_address.sin_family = AF_INET;                     //dominio local
+    if(ip_address == ""){
+        local_address.sin_addr.s_addr = htonl(INADDR_ANY);      //32 bits
+    }
+    else{
+        local_address.sin_addr.s_addr = inet_addr(ip_address.c_str());
+    }
+    local_address.sin_port = htons(port);                       //16 bits
 
-        if(ip_address.empty())
-            aux.sin_addr.s_addr = htonl(INADDR_ANY);
-        else {
-
-            char ip[255];
-            strcpy(ip, ip_address.c_str());
-            ip[254]='\0';
-            inet_aton(ip, &aux.sin_addr);
-        }
-
-    aux.sin_port = htons(port);
-    return aux;
+    return local_address;
 
 }
 
 ClientController::ClientController(std::string ip_server)
 {
 
-    dir_cliente = make_ip_address("", 7777);
+    dir_cliente = make_ip_address("", 8888);
     dir_servidor = make_ip_address(ip_server, 7777);
     Socket _socket_(dir_cliente);
     socket_ = _socket_;
@@ -49,10 +44,6 @@ void ClientController::UserSend(std::atomic<bool> &quit ){
             quit = true;
         else{
             message_text.copy(message.text,sizeof(message.text)-1,0);
-
-//            strcpy(message.text, message_text.c_str());
-//            message.text[280] = '\0';
-
             socket_.send_to(message, dir_servidor);
         }
 

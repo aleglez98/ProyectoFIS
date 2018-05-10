@@ -1,5 +1,6 @@
 #include "../include/profile.h"
 
+/*
 using namespace FIS;
 
 Profile::Profile(const std::string& nombre, const std::string& passwd){
@@ -16,3 +17,5 @@ Profile::~Profile(){}
 void Profile::ActualizarPerfil(std::string& nombre, const std::string& passwd, int edad){
     //...
 }
+
+*/

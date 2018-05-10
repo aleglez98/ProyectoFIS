@@ -31,7 +31,7 @@ Socket::~Socket(){
 
 void Socket::send_to(const Message& message, const sockaddr_in& address){
 
- //std::cout << fd_ << std::endl;
+   std::cout << "ENVIADO: " << message.text << std::endl;
 
    int result = sendto(fd_, &message, sizeof(message), 0, (const sockaddr*)&address, sizeof(address));
 
@@ -39,11 +39,10 @@ void Socket::send_to(const Message& message, const sockaddr_in& address){
 
         std::cout << result << std::endl;
         throw std::system_error(errno, std::system_category(), "fallo en el envio del mensaje");
-
    }
  }
 
- void Socket::recieve_from( Message& message, sockaddr_in& address){
+ void Socket::recieve_from(Message& message, sockaddr_in& address){
 
     socklen_t src_len = sizeof(address);
 

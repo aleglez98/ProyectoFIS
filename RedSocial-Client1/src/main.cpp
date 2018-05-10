@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 int menu_inicio(){
     int opcion;
     do {
@@ -17,6 +16,7 @@ int menu_inicio(){
 
         cout << ">> ";
         cin >> opcion;
+        std::getchar();
     }while((opcion > 2) || (opcion < 0));
 
     return opcion;
@@ -61,19 +61,19 @@ int main()
     cin >> IP;
 
     ClientController client(IP);
-    cout << "TODO BIEN" << endl;
 
     int opcion;
         do {
-            opcion = menu_inicio(); // Parte de Ale
+            opcion = menu_inicio();             //Login, etc
             switch(opcion){
-                case 0:
+                case 0:{
                     atomic<bool> condition;
                     condition = false;
                     client.UserSend(condition);
                     cout << "Saliendo..." << endl;
                     break;
-                case 1:
+                }
+                case 1:{
                     cout << " 1- Iniciar sesion" << endl;
                         if(iniciar_sesion(client) == 0)
                             //Pedir opciones de cuenta
@@ -83,7 +83,8 @@ int main()
                             cout << " Error al iniciar sesion" << endl;
 
                     break;
-                case 2:
+                }
+                case 2:{
                     cout << " 2.- Crear cuenta" << endl;
                         if(crear_cuenta(client) == 0)
                             cout << " Cuenta creada correctamente " << endl;
@@ -91,6 +92,7 @@ int main()
                             cout << " Error al crear la cuenta" << endl;
 
                     break;
+                }
                 default:
                     cout << " opcion " << opcion << " no valida " << endl;
 
