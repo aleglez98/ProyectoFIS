@@ -1,6 +1,9 @@
+<<<<<< master
 #include "../include/clientcontroller.h"
 #include "../include/profile.h"
 #include "../include/socket.h"
+======
+>>>>>> master
 
 
 sockaddr_in ClientController::make_ip_address(const std::string& ip_address, int port){
@@ -50,6 +53,7 @@ void ClientController::UserSend(std::atomic<bool> &quit ){
     }
 }
 
+<<<<<< master
 void ClientController::UserRecieve(std::atomic<bool>& quit){
     
     Message message;
@@ -83,10 +87,25 @@ int ClientController::ControlLogin(const InfoUser& usu){
     socket_.recieve_confir(confir, dir_servidor);
 
     if(confir)
+======
+
+int ClientController::ControlLogin(void){
+    InfoUser Info;
+    cout << "Ha elegido iniciar sesion" << endl;
+    cout << "Introduzca su nombre de usuario:";
+    cin >> Info.name;
+    cout << "Introduzca su password:";
+    cin >> Info.passwd;
+    socket_.send_infoUser(Info, dir_servidor);
+    std::string confir = "";
+    socket_.recieve_confir(confir, dir_servidor);
+    if(!confir.empty())
+>>>>>> master
         return 0;
     return -1;
 }
 
+<<<<<< master
 
 int ClientController::CrearCuenta(const InfoUser& info){
 
@@ -96,6 +115,18 @@ int ClientController::CrearCuenta(const InfoUser& info){
     socket_.recieve_confir(confir, dir_servidor);
 
     if(confir)
+======
+int ClientController::CrearCuenta(InfoUser& info){
+    cout << "Ha elegido crear cuenta" << endl;
+    cout << "Dime tu nombre de usuario:";
+    cin >> info.username;
+    cout << "Dime tu password:";
+    cin >> Info.password;
+    socket_.send_infoUser(infoUser, dir_servidor);
+    std::string confir = "";
+    socket_.recieve_confir(confir, dir_servidor);
+    if(!confir.empty())
+>>>>>> master
         return 0;
     return -1;
 

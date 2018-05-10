@@ -11,7 +11,11 @@ struct InfoUser{
     std::string passwd;   //Contraseña -> El cifrado y los asuntos de seguridad los dejaría para más adelante
     int edad;             //Duh
 
+<<<<<< master
     InfoUser():edad(0){}
+======
+    //...    Por si falta algo necesario
+>>>>>> master
 };
 
 struct User{

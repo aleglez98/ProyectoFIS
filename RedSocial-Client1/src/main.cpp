@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<< master
 #include "../include/clientcontroller.h"
 #include "../include/profile.h"
 #include "../include/socket.h"
@@ -98,4 +99,13 @@ int main()
 
             }
         }while( opcion != 0);
+======
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello World!" << endl;
+    return 0;
+>>>>>>master
 }

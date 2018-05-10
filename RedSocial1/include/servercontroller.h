@@ -4,6 +4,10 @@
 #include "message.h"
 
 namespace FIS{
+struct Identificador{
+    std::string username;
+    std::string password;
+};
 
 class ServerController{
 private:
@@ -26,14 +30,7 @@ public:
     //Envia info necesaria al cliente
 
     void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd);
-    //Comprueba si credenciales existen, si no, manda a crear un usuario nuevo y da acceso a la red
-
-    /*
-     * void EditarPerfil(//indice de perfil a editar, //a quién se lo muestro);
-     * void MostrarPerfil(//indice de perfil a mostrar, //a quién se lo muestro);
-     * void MostrarTimeline(//mostrar timeline de quién, //a quién se lo muestro,);
-     *                      //Manejar dentro de manera interactiva si muestra la general, me gustas o retweets
-    */
+    bool ControlRegistro(const std::string& username, const std::string& passwd);
 };
 
 }
