@@ -36,39 +36,8 @@ public:
     void serverSend(std::atomic<bool>& quit, const std::string& username);
     //Envia info necesaria al cliente
 
-     void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd){
-        quit=ControlRegistro(username,passwd);
-        serverSend(quit,username);
-    }
-    bool ControlRegistro(const std::string& username, const std::string& passwd){
-        bool quit=false;
-        string prueba;
-        ifstream registro("basddatos.txt");
-        while(quit==false){
-            getline(registro,prueba);
-            if(prueba.find(username)!= -1){
-                if(prueba.find(",") != -1){
-                    if(prueba.find(passwd)!= -1){
-                        cout << "Usuario correcto\n";
-                        Identificador.username=username;
-                        Identificador.password=passwd;
-                        exito=true;
-                        serverSend(exito,username);
-                        return exito;
-                        }
-                    }
-                   else{
-                    serverSend(exito,username);
-                    return exito;
-                    }
-                }
-            else{
-                    serverSend(exito,username);
-                    return exito;
-                }
-            }
-        }
-    }
+    void ControlLogin(std::atomic<bool>& quit, const std::string& username, const std::string& passwd);
+    bool ControlRegistro(const std::string& username, const std::string& passwd);
 };
 
 }
