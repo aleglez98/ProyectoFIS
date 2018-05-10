@@ -18,24 +18,31 @@
 Empezado el sistema de Proyecto que ofrece Github. Mucho más visual que ir retocando un fichero de texto.
 
 Base de datos General e Histórico (History) -> Daniel
+
 Gestión de Perfiles y Bases de Datos Propias(Profile) -> Sonia
+
 Gestión de Control de Servidor (main/Server-Controller) -> Fernando
+
 Gestión de Control de Cliente (main/Client-Controller) -> Marta, Othmán
+
 Base de Datos de Cliente (Caché del modo Cliente) -> Aitor
+
 Proceso de login (Crossplatform) -> Alejandro
-Tiempo requerido individualmente para la realización de la primera entrega 0.
 
 ### **OBJETIVO INICIAL**
 ----------------------
 
-Para la primera entrega nos hubiera gustado que el usuario se pudiera crear la cuenta y haber implementado el envío del mensaje, pero no ha sido posible llegar a nuestro primer objetivo.
+Se plantea la creación de una aplicación en C++ con el modelo cliente-servidor que funcione como una red social en un entorno "privado" o corporativo. Para ello, se seguirá el esquema de planificación realizado en la primera reunión del grupo de desarrollo.
 
-#### **TUTORIALS ON POINT**
-------------------------------
+(Nótese que aunque tiene elementos de UML no es sino una versión orientativa y hecha sobre la marcha, servirá únicamente como concepto)
+
+![Draw.io](ModeloBásico.png)
+
+
+
 
 ***1. Creación del Servidor:***
-Contiene la cuenta o login para guardar los datos en un fichero.
-Habrá un menú donde el usuario puede escoger lo que desea hacer entre las siguientes opciones: editar perfil, mostrar perfil, mostrar historial (me gusta, retweet o publicaciones del usuario).
+Programa en C++ que gestiona la base de datos contenedora de datos del usuario y da servicio a las peticiones de datos y uso de la aplicación que requieran consultas con la base de datos.
   
 ***2. Creación del Cliente:***
 El cliente podrá inciar sesión o realizar el login y, además podrá acceder a su perfil. Tendrá un menú para que el usuario pueda: enviar mensajes, modificar su perfil. 
@@ -56,4 +63,4 @@ Contendrá la información de las interacciones del usuario. Guardará en un fic
 Consta de un ID (identificador) de los usuarios, tanto emisores como receptores para poder conocer la dirección real donde se localizan dichos usuarios, en nuestro caso vamos a acceder a la clase historial donde se han guardado previamente las ID's de los usuarios.
 También tendremos en cuenta el orden de llegada de los mensajes.
 
-Estos puntos reflejan la situación final de nuestra Red Social basada en Tweeter.
+Estos puntos reflejan la situación final de nuestra Red Social basada en Twitter
