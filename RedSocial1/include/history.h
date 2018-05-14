@@ -24,6 +24,8 @@ public:
     ~History();                         ///>@brief Default destructor
 
     int get_fd(){ return fd_; }
+    bool Login(string name,string passwd);
+    bool Registro(string name,string passwd);
 
     void AddMessage(const Message& message, int UserID);   ///>@brief Adds message to a certain profile TL and General
     //....
