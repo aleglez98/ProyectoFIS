@@ -38,11 +38,11 @@ bool FIS::Login(std::string name,std::string passwd){
     fs.close();
     return true;
 }
-void FIS::AddMessage(const Message& message, int UserID,std::string &user){
+void FIS::AddMessage(const Message& message){
    std::fstream fs;
    fs.open("tweets.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-   fs << user << std::endl;
-   fs << passwd << std::endl;
+   fs << message.username << std::endl;
+   fs << message.passwd << std::endl;
    fs << message.text << std::endl;
    profile.insertar(message,UserID,user);  //Funcion para insertar en la cuenta del usuario sus tweets
 }
