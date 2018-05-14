@@ -29,3 +29,12 @@ bool FIS::Register(string &user,string &passwd){
       i++;
             }
 }
+
+bool FIS::Login(string name,string passwd){
+    fstream fs;
+    fs.open("basddatos.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    fs << name << ",";
+    fs << passwd << "," << endl;
+    fs.close();
+    return true;
+}
