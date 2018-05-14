@@ -1,7 +1,7 @@
 #include"../include/history.h"
 
 bool FIS::Register(string &user,string &passwd){
-   ifstream registro("basddatos.txt");
+   ifstream registro("login.txt");
    bool exito=false,encontrado=false;
    i=1;
    while(exito==false){
@@ -30,11 +30,19 @@ bool FIS::Register(string &user,string &passwd){
             }
 }
 
-bool FIS::Login(string name,string passwd){
-    fstream fs;
-    fs.open("basddatos.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+bool FIS::Login(std::string name,std::string passwd){
+    std::fstream fs;
+    fs.open("login.txt", std::fstream::in | std::fstream::out | std::fstream::app);
     fs << name << ",";
     fs << passwd << "," << endl;
     fs.close();
     return true;
+}
+void FIS::AddMessage(const Message& message, int UserID,std::string &user){
+   std::fstream fs;
+   fs.open("tweets.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+   fs << user << std::endl;
+   fs << passwd << std::endl;
+   fs << message.text << std::endl;
+   profile.insertar(message,UserID,user);  //Funcion para insertar en la cuenta del usuario sus tweets
 }
