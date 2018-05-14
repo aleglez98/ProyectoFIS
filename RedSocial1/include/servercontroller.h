@@ -12,7 +12,7 @@ struct Identificador{
 class ServerController{
 private:
 
-    //FIS::History history_;
+    FIS::History history_;
     FIS::Socket socket_;        //El socket probablemente vaya en el main. Está por ver
     std::mutex mutex_;
 
@@ -30,7 +30,7 @@ public:
     //Envia info necesaria al cliente
 
     void ControlLogin(void);
-    void ServerController::Register(void);
+    void Register(void);
 };
 
 }
